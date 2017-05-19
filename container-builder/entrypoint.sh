@@ -4,7 +4,7 @@ set -xe
 SOURCE_TYPE=$1
 BUILD_TYPE=$2
 
-if [[ $IMAGE_TAG =~ "gcr.io/.*" ]]; then
+if [[ $IMAGE_TAG =~ "gcr\.io/.*" ]]; then
   gcloud docker -a
 fi
 
