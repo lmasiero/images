@@ -4,6 +4,10 @@ set -xe
 SOURCE_TYPE=$1
 BUILD_TYPE=$2
 
+if [[ $IMAGE_TAG =~ "gcr.io/.*" ]]; then
+  gcloud docker -a
+fi
+
 if [ "$SOURCE_TYPE" = 'git-repo' ]; then
     git clone $GIT_REPO repo
 elif [ "$SOURCE_TYPE" = 'cloud-soure-repo' ]; then
