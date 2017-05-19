@@ -1,9 +1,9 @@
 FROM debian:8.8
 
 # Install Google Cloud SDK
-ENV CLOUDSDK_CORE_DISABLE_PROMPTS 1 \
+ENV CLOUDSDK_CORE_DISABLE_PROMPTS=1 \
     GOOGLE_CLOUD_SDK_VERSION=154.0.0 \
-    PATH /opt/google-cloud-sdk/bin:$PATH
+    PATH=/opt/google-cloud-sdk/bin:$PATH
 RUN set -x \
     && cd /opt \
     && echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections \
