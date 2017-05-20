@@ -19,6 +19,8 @@ else
 fi
 
 pushd repo
+  # TODO: Need to check if this tag exists
+  git checkout tags/$GIT_TAG
   if [ "$BUILD_TYPE" = 'container-builder' ]; then
       gcloud container builds submit --tag $IMAGE_TAG .
   elif [ "$BUILD_TYPE" = 'local-docker' ]; then
