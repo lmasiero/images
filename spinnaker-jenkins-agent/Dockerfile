@@ -8,5 +8,5 @@ USER root
 
 RUN apt-get update -y && apt-get install -y jq  \
       libapparmor-dev \
-      libseccomp-dev \
+      libseccomp-dev
 RUN curl https://sdk.cloud.google.com | bash && mv google-cloud-sdk /opt && gcloud components install kubectl
