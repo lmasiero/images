@@ -4,6 +4,7 @@ steps:
   args:
   - '-c'
   - |
+        cd vegeta
         VERSION=$$(echo $TAG_NAME | awk -F "-" '{print $2}')
         docker build -t gcr.io/$PROJECT_ID/vegeta:$$VERSION .
         docker push gcr.io/$PROJECT_ID/vegeta:$$VERSION
