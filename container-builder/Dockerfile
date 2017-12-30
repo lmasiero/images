@@ -1,4 +1,4 @@
-FROM debian:8.8
+FROM debian:9
 
 # Install Google Cloud SDK
 ENV CLOUDSDK_CORE_DISABLE_PROMPTS=1 \
