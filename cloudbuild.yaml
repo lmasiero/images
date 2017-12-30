@@ -2,7 +2,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
   args:
-  - '-c'
+  - '-cxe'
   - |
         IMAGE=$$(echo $TAG_NAME | awk -F "-" '{print $1}')
         VERSION=$$(echo $TAG_NAME | awk -F "-" '{print $2}')
