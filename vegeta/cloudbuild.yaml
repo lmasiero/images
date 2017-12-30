@@ -4,6 +4,6 @@ steps:
   args:
   - '-c'
   - |
-        VERSION=$(echo $TAG_NAME | awk -F "-" '{print $2}')
-        docker build -t gcr.io/$PROJECT_ID/vegeta:$VERSION .
-        gcloud docker -- push gcr.io/$PROJECT_ID/vegeta:$VERSION
+        VERSION=$$(echo $TAG_NAME | awk -F "-" '{print $2}')
+        docker build -t gcr.io/$PROJECT_ID/vegeta:$$VERSION .
+        gcloud docker -- push gcr.io/$PROJECT_ID/vegeta:$$VERSION
