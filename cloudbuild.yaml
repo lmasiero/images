@@ -4,8 +4,8 @@ steps:
   args:
   - '-cxe'
   - |
-        IMAGE=$$(echo $TAG_NAME | awk -F "-" '{print $1}')
-        VERSION=$$(echo $TAG_NAME | awk -F "-" '{print $$NF}')
+        IMAGE=$$(echo $TAG_NAME | awk -F "#" '{print $1}')
+        VERSION=$$(echo $TAG_NAME | awk -F "#" '{print $2}')
         cd $$IMAGE
         docker build -t gcr.io/$PROJECT_ID/$$IMAGE:$$VERSION .
         docker push gcr.io/$PROJECT_ID/$$IMAGE:$$VERSION
