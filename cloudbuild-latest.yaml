@@ -1,0 +1,16 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: 'bash'
+  args:
+  - '-cxe'
+  - |
+        IMAGE=$$(echo $TAG_NAME | awk -F "#" '{print $1}')
+        for IMAGE in *; do
+          if [[ -d $$IMAGE ]]; then
+            pushd $$IMAGE
+              docker build -t gcr.io/$PROJECT_ID/$$IMAGE:latest .
+              docker push gcr.io/$PROJECT_ID/$$IMAGE:latest
+            popd
+          fi
+        done
+        
